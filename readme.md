@@ -1,5 +1,9 @@
 # Easy Encoder
 
+<p align="center">
+  <img src="Easy Encoder.png" alt="Easy Encoder icon" width="100" />
+</p>
+
 Easy Encoder is a simple, user-friendly front‑end built with the Godot Engine that lets you encode media files without dealing with complex command‑line options.
 
 > Note: This project is my first Godot app, created as a learning exercise. While it works well for basic encoding tasks, it may lack advanced features found in dedicated tools.
