@@ -11,7 +11,7 @@ Easy Encoder is a simple, user-friendly front‑end built with the Godot Engine 
 - Clean, minimal UI built in Godot
 - Adjustable encoding **quality** via slider
 - **Mute / unmute** audio toggle
-- Preset **encoding options** handled in one place
+- Preset **encoding options** (Do note that the AV1 encoding is very slow)
 
 ---
 
@@ -24,26 +24,7 @@ Easy Encoder is a simple, user-friendly front‑end built with the Godot Engine 
 
 ---
 
-## Requirements
-
-- **Godot Engine** 4.x (open `project.godot`)
-- A working video/audio encoder installed on your system (for example `ffmpeg`) if your scripts are wired to call external tools
-- Windows 10/11 for the provided `.exe` build
-
-> If you just want to use the app, you only need the Windows requirements. To modify the project, install Godot as well.
-
----
-
 ## Getting Started
-
-### Running the Editor Version
-
-1. Install Godot 4.x.
-2. Clone or download this repository.
-3. Open `project.godot` in Godot.
-4. Run the project (F5 or ▶ in the Godot editor).
-
-The main scene is `main.tscn`, with the main script in `main.gd`. Supporting scripts live under `src/`.
 
 ### Using the Windows Build
 
@@ -51,3 +32,13 @@ The main scene is `main.tscn`, with the main script in `main.gd`. Supporting scr
 2. Download `Easy Encoder.exe` and place it in a convenient location.
 3. Download ffmpeg from [ffmpeg.org](https://ffmpeg.org/download.html) (or directly download it [here](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.0-latest-win64-gpl-8.0.zip)) and ensure it's accessible via your system PATH (alternatively you can place `ffmpeg.exe` and `ffprobe.exe` next to `Easy Encoder.exe`).
 4. You're ready to run the application!
+
+### Running the Editor Version
+
+1. Install Godot 4.x.
+2. Clone or download this repository.
+3. Add [ffmpeg](https://ffmpeg.org/) to your system PATH.
+4. Open `project.godot` in Godot.
+5. Run the project (F5 or ▶ in the Godot editor).
+
+The main scene is `main.tscn`, with the main script in `main.gd`. Supporting scripts live under `src/`.
