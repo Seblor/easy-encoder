@@ -54,7 +54,6 @@ func resizeThumbnailPic() -> void:
 		return
 	var imgRatio: float = float(thumbnail_pic.texture.get_size().x) / float(thumbnail_pic.texture.get_size().y)
 	var imgPanelRatio: float = float(thumbnail_panel.size.x) / float(thumbnail_panel.size.y)
-	print("imgRatio: %f, imgPanelRatio: %f" % [imgRatio, imgPanelRatio])
 	if imgRatio > imgPanelRatio:
 		thumbnail_pic.custom_minimum_size.x = thumbnail_panel.size.x
 		thumbnail_pic.custom_minimum_size.y = thumbnail_panel.size.x / imgRatio
