@@ -1,0 +1,183 @@
+[gd_scene load_steps=10 format=3 uid="uid://dnnr3m3escfn6"]
+
+[ext_resource type="Script" uid="uid://cmj3vsr3tjyi5" path="res://src/main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://be46pt00vkfmm" path="res://src/encoder_options.gd" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://bvb4mcce3rhdp" path="res://src/quality_slider.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://bct3mmhrbi32d" path="res://src/mute_toggle.gd" id="4_1bvp3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7mycd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_272bh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lquwl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1bvp3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lquwl"]
+font_size = 64
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 350
+
+[node name="LeftPanel" type="PanelContainer" parent="HSplitContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/LeftPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="SettingsContainer" type="VBoxContainer" parent="HSplitContainer/LeftPanel/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SrcVideoLbl" type="Label" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Drop a fideo file on this window"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+
+[node name="EncoderLbl" type="Label" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+text = "Encoder"
+horizontal_alignment = 1
+
+[node name="EncoderOptions" type="OptionButton" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7mycd")
+script = ExtResource("3_1bvp3")
+
+[node name="HSeparator2" type="HSeparator" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+
+[node name="QualityLbl" type="Label" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+text = "Quality"
+horizontal_alignment = 1
+
+[node name="QualityValuePanel" type="VBoxContainer" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Panel" type="HFlowContainer" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/QualityValuePanel"]
+layout_mode = 2
+
+[node name="MinQualityLbl" type="Label" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/QualityValuePanel/Panel"]
+layout_mode = 2
+text = "0"
+
+[node name="SelectedQualityLbl" type="Label" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/QualityValuePanel/Panel"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "28 (default)"
+horizontal_alignment = 1
+
+[node name="MaxQualityLbl" type="Label" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/QualityValuePanel/Panel"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "51"
+
+[node name="QualitySlider" type="HSlider" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/QualityValuePanel"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 51.0
+value = 28.0
+script = ExtResource("3_h2yge")
+
+[node name="HSeparator3" type="HSeparator" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+
+[node name="AudioLbl" type="Label" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="MuteToggle" type="CheckBox" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_272bh")
+text = "Mute"
+alignment = 1
+script = ExtResource("4_1bvp3")
+
+[node name="Filler" type="Control" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OutputLbl" type="Label" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+text = "Output"
+horizontal_alignment = 1
+
+[node name="TargetVideoInput" type="LineEdit" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lquwl")
+placeholder_text = "Target video.mp4"
+
+[node name="EncodeBtn" type="Button" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1bvp3")
+text = "
+Encode
+
+"
+
+[node name="ProgressBar" type="ProgressBar" parent="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+
+[node name="ThumbnailPanel" type="CenterContainer" parent="HSplitContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ThumbnailCenterPanel" type="CenterContainer" parent="HSplitContainer/ThumbnailPanel"]
+layout_mode = 2
+use_top_left = true
+
+[node name="DropFileHintWrapper" type="Control" parent="HSplitContainer/ThumbnailPanel/ThumbnailCenterPanel"]
+layout_mode = 2
+
+[node name="DropFileHintLbl" type="Label" parent="HSplitContainer/ThumbnailPanel/ThumbnailCenterPanel/DropFileHintWrapper"]
+layout_mode = 0
+offset_left = -332.0
+offset_top = -44.0
+offset_right = 332.0
+offset_bottom = 44.0
+text = "Drop a video file here"
+label_settings = SubResource("LabelSettings_lquwl")
+
+[node name="ThumbnailPic" type="TextureRect" parent="HSplitContainer/ThumbnailPanel/ThumbnailCenterPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 1
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="item_selected" from="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/EncoderOptions" to="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/EncoderOptions" method="_on_item_selected"]
+[connection signal="ready" from="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/EncoderOptions" to="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/EncoderOptions" method="_on_ready"]
+[connection signal="value_changed" from="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/QualityValuePanel/QualitySlider" to="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/QualityValuePanel/QualitySlider" method="_on_value_changed"]
+[connection signal="toggled" from="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/MuteToggle" to="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/MuteToggle" method="_on_toggled"]
+[connection signal="pressed" from="HSplitContainer/LeftPanel/MarginContainer/SettingsContainer/EncodeBtn" to="." method="_on_encode_btn_pressed"]
+[connection signal="resized" from="HSplitContainer/ThumbnailPanel" to="." method="_on_thumbnail_panel_resized"]
